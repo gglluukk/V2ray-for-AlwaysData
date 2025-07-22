@@ -88,13 +88,13 @@ div {
 </style>
 </head>
 <body bgcolor="#FFFFFF" text="#000000">
-<div><font color="#009900"><b>VMESS协议链接：</b></font></div>
+<div><font color="#009900"><b>Ссылка протокола VMESS：</b></font></div>
 <div>$vmlink</div>
-<div><font color="#009900"><b>VMESS协议二维码：</b></font></div>
+<div><font color="#009900"><b>QR-код протокола VMESS：</b></font></div>
 <div><img src="/M$UUID.png"></div>
-<div><font color="#009900"><b>VLESS协议链接：</b></font></div>
+<div><font color="#009900"><b>Ссылка протокола VLESS：</b></font></div>
 <div>$vllink</div>
-<div><font color="#009900"><b>VLESS协议二维码：</b></font></div>
+<div><font color="#009900"><b>QR-код протокола VLESS：</b></font></div>
 <div><img src="/L$UUID.png"></div>
 </body>
 </html>
