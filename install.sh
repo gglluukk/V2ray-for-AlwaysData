@@ -48,16 +48,13 @@ EOF
 cat > $HOME/www/index.html<<-EOF
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Alwaysdata</title>
-<style type="text/css">
-body {
-      font-family: Geneva, Arial, Helvetica, san-serif;
-    }
-</style>
+    <title>Redirecting...</title>
+    <meta http-equiv="refresh" content="0;url=https://www.alwaysdata.com/">
+    <link rel="canonical" href="https://www.alwaysdata.com/">
+    <script>window.location.href = "https://www.alwaysdata.com/";</script>    
 </head>
-<body bgcolor="#FFFFFF" text="#000000">
-<div align="center"><b>Hello World</b></div>
+<body><center><br><br><br><br><br>
+        <p>If you are not redirected automatically: <a href="https://www.alwaysdata.com/">click here</a>.</p>
 </body>
 </html>
 EOF
