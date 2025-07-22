@@ -16,15 +16,31 @@ sed -i "s#UUID#$UUID#g;s#VMESS_WSPATH#$VMESS_WSPATH#g;s#VLESS_WSPATH#$VLESS_WSPA
 /bin/cp -f $TMP_DIRECTORY/config.json $HOME
 rm -rf $HOME/admin/tmp/*.*
 
-Advanced_Settings=$(cat <<-EOF
+# preserve orgiginal admin
+if [ ! -d admin.orig ] ; then
+    mv admin admin.orig
+fi
+cp -av admin.orig admin
+
+cat > admin/config/apache/sites.conf<<-EOF
+<VirtualHost *>
+ServerName ${USER}.alwaysdata.net
+
 ProxyRequests off
 ProxyPreserveHost On
-ProxyPass "${VMESS_WSPATH}" "ws://services-${USER}.alwaysdata.net:8300${VMESS_WSPATH}"
-ProxyPassReverse "${VMESS_WSPATH}" "ws://services-${USER}.alwaysdata.net:8300${VMESS_WSPATH}"
-ProxyPass "${VLESS_WSPATH}" "ws://services-${USER}.alwaysdata.net:8400${VLESS_WSPATH}"
-ProxyPassReverse "${VLESS_WSPATH}" "ws://services-${USER}.alwaysdata.net:8400${VLESS_WSPATH}"
+ProxyPass "/vmess" "ws://services-${USER}.alwaysdata.net:8300/vmess"
+ProxyPassReverse "/vmess" "ws://services-${USER}.alwaysdata.net:8300/vmess"
+ProxyPass "/vless" "ws://services-${USER}.alwaysdata.net:8400/vless"
+ProxyPassReverse "/vless" "ws://services-${USER}.alwaysdata.net:8400/vless"
+
+<Location />
+  RemoveHandler .php
+</Location>
+
+DocumentRoot "/home/${USER}/www/"
+
+</VirtualHost>
 EOF
-)
 
 vmlink=vmess://$(echo -n "{\"v\":\"2\",\"ps\":\"${USER}@AlwaysData\",\"add\":\"$URL\",\"port\":\"443\",\"id\":\"$UUID\",\"aid\":\"0\",\"net\":\"ws\",\"type\":\"none\",\"host\":\"$URL\",\"path\":\"$VMESS_WSPATH\",\"tls\":\"tls\"}" | base64 -w 0)
 vllink="vless://"$UUID"@"$URL":443?encryption=none&security=tls&type=ws&host="$URL"&path="$VLESS_WSPATH"#${USER}@AlwaysData"
@@ -32,10 +48,11 @@ vllink="vless://"$UUID"@"$URL":443?encryption=none&security=tls&type=ws&host="$U
 qrencode -o $HOME/www/M$UUID.png $vmlink
 qrencode -o $HOME/www/L$UUID.png $vllink
 
-Author=$(cat <<-EOF
-### V2ray for AlwaysData.com
-EOF
-)
+# preserve original/modified index.html
+if [ ! -f www/index.html.orig ] ; then
+    mv www/index.html www/index.html.orig
+    chmod 000 www/index.html.orig
+fi
 
 cat > $HOME/www/index.html<<-EOF
 <html>
@@ -85,11 +102,9 @@ EOF
 
 clear
 
-echo -e "\e[32m$Author\e[0m"
+echo -e "\e[32m### V2ray for AlwaysData.com\e[0m"
 
 echo -e "\n\e[33mПожалуйста, СКОПИРУЙТЕ следующий зеленый текст в SERVICE Command*:\n\e[0m"
 echo -e "\e[32m./v2ray run -config config.json\e[0m"
-echo -e "\n\e[33mПожалуйста, СКОПИРУЙТЕ следующий зеленый текст в Advanced Settings:\n\e[0m"
-echo -e "\e[32m$Advanced_Settings\e[0m"
 echo -e "\n\e[33mНажмите на следующую ссылку, чтобы получить информацию о узле:\n\e[0m"
 echo -e "\e[32mhttps://$URL/$UUID.html\n\e[0m"
