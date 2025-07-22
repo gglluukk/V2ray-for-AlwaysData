@@ -47,13 +47,7 @@ qrencode -o $HOME/www/M$UUID.png $vmlink
 qrencode -o $HOME/www/L$UUID.png $vllink
 
 Author=$(cat <<-EOF
-#############################################################
-#
-# V2ray for Alwaysdata.com
-# Author: ifeng, <https://t.me/HiaiFeng>
-# Web Site: https://www.hicairo.com
-#
-#############################################################
+### V2ray for Alwaysdata.com
 EOF
 )
 
@@ -110,11 +104,9 @@ clear
 
 echo -e "\e[32m$Author\e[0m"
 
-echo -e "\n\e[33m请 COPY 以下绿色文字到 SERVICE Command* 中：\n\e[0m"
+echo -e "\n\e[33mПожалуйста, СКОПИРУЙТЕ следующий зеленый текст в SERVICE Command*:\n\e[0m"
 echo -e "\e[32m./v2ray -config config.json\e[0m"
-echo -e "\n\e[33m请 COPY 以下绿色文字到 Advanced Settings 中：\n\e[0m"
+echo -e "\n\e[33mПожалуйста, СКОПИРУЙТЕ следующий зеленый текст в Advanced Settings:\n\e[0m"
 echo -e "\e[32m$Advanced_Settings\e[0m"
-
-echo -e "\n\e[33m点击以下链接获取节点信息：\n\e[0m"
+echo -e "\n\e[33mНажмите на следующую ссылку, чтобы получить информацию о узле:\n\e[0m"
 echo -e "\e[32mhttps://$URL/$UUID.html\n\e[0m"
-
