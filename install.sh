@@ -34,8 +34,8 @@ ProxyPassReverse "${VLESS_WSPATH}" "ws://services-${USER}.alwaysdata.net:8400${V
 EOF
 )
 
-vmlink=vmess://$(echo -n "{\"v\":\"2\",\"ps\":\"AlwaysData\",\"add\":\"$URL\",\"port\":\"443\",\"id\":\"$UUID\",\"aid\":\"0\",\"net\":\"ws\",\"type\":\"none\",\"host\":\"$URL\",\"path\":\"$VMESS_WSPATH\",\"tls\":\"tls\"}" | base64 -w 0)
-vllink="vless://"$UUID"@"$URL":443?encryption=none&security=tls&type=ws&host="$URL"&path="$VLESS_WSPATH"#AlwaysData"
+vmlink=vmess://$(echo -n "{\"v\":\"2\",\"ps\":\"${USER}@AlwaysData\",\"add\":\"$URL\",\"port\":\"443\",\"id\":\"$UUID\",\"aid\":\"0\",\"net\":\"ws\",\"type\":\"none\",\"host\":\"$URL\",\"path\":\"$VMESS_WSPATH\",\"tls\":\"tls\"}" | base64 -w 0)
+vllink="vless://"$UUID"@"$URL":443?encryption=none&security=tls&type=ws&host="$URL"&path="$VLESS_WSPATH"#${USER}@AlwaysData"
 
 qrencode -o $HOME/www/M$UUID.png $vmlink
 qrencode -o $HOME/www/L$UUID.png $vllink
