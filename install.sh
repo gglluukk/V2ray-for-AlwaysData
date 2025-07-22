@@ -41,7 +41,7 @@ qrencode -o $HOME/www/M$UUID.png $vmlink
 qrencode -o $HOME/www/L$UUID.png $vllink
 
 Author=$(cat <<-EOF
-### V2ray for Alwaysdata.com
+### V2ray for AlwaysData.com
 EOF
 )
 
