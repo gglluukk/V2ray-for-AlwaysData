@@ -88,7 +88,7 @@ clear
 echo -e "\e[32m$Author\e[0m"
 
 echo -e "\n\e[33mПожалуйста, СКОПИРУЙТЕ следующий зеленый текст в SERVICE Command*:\n\e[0m"
-echo -e "\e[32m./v2ray -config config.json\e[0m"
+echo -e "\e[32m./v2ray run -config config.json\e[0m"
 echo -e "\n\e[33mПожалуйста, СКОПИРУЙТЕ следующий зеленый текст в Advanced Settings:\n\e[0m"
 echo -e "\e[32m$Advanced_Settings\e[0m"
 echo -e "\n\e[33mНажмите на следующую ссылку, чтобы получить информацию о узле:\n\e[0m"
