@@ -19,9 +19,8 @@ rm -rf $HOME/admin/tmp/*.*
 # preserve orgiginal admin
 if [ ! -d admin.orig ] ; then
     mv admin admin.orig
+    cp -av admin.orig admin
 fi
-rm -rf admin
-cp -av admin.orig admin
 
 cat > admin/config/apache/sites.conf<<-EOF
 <VirtualHost *>
