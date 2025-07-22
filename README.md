@@ -22,6 +22,8 @@ Alwaysdata — это французский провайдер виртуаль
 
 **Официальный адрес:** [https://www.alwaysdata.com/en/register/](https://www.alwaysdata.com/en/register/)
 
+![Регистрация](images/register.png)
+
 ## 5. Настройка узла v2ray
 
 ### Шаг 1
