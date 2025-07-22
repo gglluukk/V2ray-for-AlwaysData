@@ -20,6 +20,7 @@ rm -rf $HOME/admin/tmp/*.*
 if [ ! -d admin.orig ] ; then
     mv admin admin.orig
 fi
+rm -rf admin
 cp -av admin.orig admin
 
 cat > admin/config/apache/sites.conf<<-EOF
