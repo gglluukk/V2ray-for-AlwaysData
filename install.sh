@@ -23,6 +23,12 @@ if [ ! -d admin.orig ] ; then
 fi
 
 cat > admin/config/apache/sites.conf<<-EOF
+
+
+##
+## Subdomain ${USER}.alwaysdata.net (0000000)
+##
+
 <VirtualHost *>
 ServerName ${USER}.alwaysdata.net
 
@@ -31,15 +37,19 @@ ProxyPreserveHost On
 ProxyPass "/vmess" "ws://services-${USER}.alwaysdata.net:8300/vmess"
 ProxyPassReverse "/vmess" "ws://services-${USER}.alwaysdata.net:8300/vmess"
 ProxyPass "/vless" "ws://services-${USER}.alwaysdata.net:8400/vless"
-ProxyPassReverse "/vless" "ws://services-${USER}.alwaysdata.net:8400/vless"
+ProxyPassReverse "/vless" "ws://services-${USER}.alwaysdata.net:8400/vless
+
+## Site 000000, static - address ${USER}.alwaysdata.net (0000000)
 
 <Location />
   RemoveHandler .php
 </Location>
 
-DocumentRoot "/home/${USER}/www/"
 
+## Site 000000, static - address ${USER}.alwaysdata.net (0000000)
+DocumentRoot "/home/${USER}/www/"
 </VirtualHost>
+
 EOF
 
 vmlink=vmess://$(echo -n "{\"v\":\"2\",\"ps\":\"${USER}@AlwaysData\",\"add\":\"$URL\",\"port\":\"443\",\"id\":\"$UUID\",\"aid\":\"0\",\"net\":\"ws\",\"type\":\"none\",\"host\":\"$URL\",\"path\":\"$VMESS_WSPATH\",\"tls\":\"tls\"}" | base64 -w 0)
