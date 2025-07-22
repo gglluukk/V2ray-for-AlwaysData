@@ -17,10 +17,6 @@ sed -i "s#UUID#$UUID#g;s#VMESS_WSPATH#$VMESS_WSPATH#g;s#VLESS_WSPATH#$VLESS_WSPA
 rm -rf $HOME/admin/tmp/*.*
 
 Advanced_Settings=$(cat <<-EOF
-#UUID=${UUID}
-#VMESS_WSPATH=${VMESS_WSPATH}
-#VLESS_WSPATH=${VLESS_WSPATH}
-
 ProxyRequests off
 ProxyPreserveHost On
 ProxyPass "${VMESS_WSPATH}" "ws://services-${USER}.alwaysdata.net:8300${VMESS_WSPATH}"
