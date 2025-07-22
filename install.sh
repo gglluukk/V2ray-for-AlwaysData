@@ -1,11 +1,5 @@
 #!/bin/bash
-#############################################################
-#
 # V2ray for Alwaysdata.com
-# Author: ifeng, <https://t.me/HiaiFeng>
-# Web Site: https://www.hicairo.com
-#
-#############################################################
 
 TMP_DIRECTORY=$(mktemp -d)
 
