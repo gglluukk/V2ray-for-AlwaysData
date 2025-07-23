@@ -39,12 +39,12 @@ Alwaysdata — это французский провайдер виртуаль
 bash <(curl -sL https://raw.githubusercontent.com/gglluukk/V2ray-for-AlwaysData/main/install.sh)
 ```
 
-![Установка](images/5.png)
+![Установка](images/4.png)
 
 ### Шаг 4
 После выполнения команды на предыдущем шаге появится следующее сообщение:
 
-![v2ray](images/7.png)
+![v2ray](images/5.png)
 
 ### Шаг 5
 Согласно подсказке настройте Services. Сначала нажмите левое меню Advanced -> Services, затем нажмите кнопку Add a service справа. Как показано на рисунке, скопируйте следующую команду в Command*, затем нажмите кнопку Submit внизу.
@@ -58,7 +58,7 @@ bash <(curl -sL https://raw.githubusercontent.com/gglluukk/V2ray-for-AlwaysData/
 ### Шаг 6
 Снова нажмите левое меню Web -> Sites, затем нажмите значок перезапуска.
 
-![Сайт](images/8.png)
+![Сайт](images/7.png)
 
 ### Шаг 7
 Откройте URL, созданный программой на шаге 4, чтобы получить ссылки узлов vmess/vless и QR-коды. Импортируйте ссылки узлов в v2rayN или отсканируйте предоставленный QR-код мобильным телефоном для подключения v2ray.
