@@ -33,7 +33,7 @@ Alwaysdata — это французский провайдер виртуаль
 ![SSH](images/3.png)
 
 ### Шаг 3
-Нажмите (accessible also on the Web) и войдите в аккаунт. Выполните следующую команду для установки v2ray:
+Нажмите "accessible also <u>on the Web</u>" и войдите в аккаунт. Выполните следующую команду для установки v2ray:
 
 ```bash
 bash <(curl -sL https://raw.githubusercontent.com/gglluukk/V2ray-for-AlwaysData/main/install.sh)
